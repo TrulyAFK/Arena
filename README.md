@@ -1,2 +1,2 @@
 # Arena
-play at 
+play at https://trulyafk.github.io/Arena/
