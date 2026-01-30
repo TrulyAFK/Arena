@@ -16,6 +16,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Rotate",
+                    "type": "Value",
+                    "id": "6834036b-f5ab-4eb2-8e14-975f8cb87bbd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "d0a38522-e68b-4367-97cb-c56f8ea8261e",
@@ -28,6 +37,15 @@
                     "name": "Shoot",
                     "type": "Button",
                     "id": "06d025fb-6365-4b11-a8d5-f0c6ea7179fe",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "mouseLock",
+                    "type": "Button",
+                    "id": "fdf908cf-0237-4bce-9e24-1f53db123920",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -103,12 +121,67 @@
                 },
                 {
                     "name": "",
-                    "id": "26051e2e-6795-40ff-87c8-9bf614c0b86a",
+                    "id": "efc3c406-baf5-4dc6-a363-294d9cb554e6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aaaa0837-6ce6-4b4c-a5c8-6fad79fdf2ba",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "af3581f5-5b86-4797-b574-e0af973e13cf",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "73d980b7-3349-4bc2-9d1b-bb0b7b3e3e1d",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "a0ce80ae-4171-4714-b980-b5b98ded1592",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "fdf129fc-adc6-4e41-9d63-68164048f466",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "mouseLock",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -123,6 +196,11 @@
                 {
                     "devicePath": "<Keyboard>",
                     "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": true,
                     "isOR": false
                 }
             ]

@@ -1,6 +1,15 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.Utilities;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -9,15 +18,24 @@ public class Player : MonoBehaviour
     public float rotateSpeed;
     public float jumpForce;
     private Vector2 _moveDirection;
+    private float _rotateDirection;
     public InputActionReference move;
-
+    public InputActionReference jump;
+    public InputActionReference shoot;
+    public InputActionReference rotate;
+    public InputActionReference Mlock;
     public float distanceToGround = 0.1f;
     public LayerMask groundLayer;
     private CapsuleCollider _col;
 
     public GameObject bullet;
     public float bulletSpeed = 100f;
+    public float fireRate=.5f;
 
+    public bool isShooting=false;
+
+
+    private IEventHandler test;
     void Start()
     {
         _col = GetComponent<CapsuleCollider>();
@@ -26,22 +44,33 @@ public class Player : MonoBehaviour
     void Update()
     {
         _moveDirection = move.action.ReadValue<Vector2>();
+        _rotateDirection = rotate.action.ReadValue<float>();
+    }
+    async Task<string> Shoot(float between)
+    {   
+        isShooting = true;
+        GameObject newBullet = Instantiate(bullet, this.transform.position + new Vector3(1, 0, 0), this.transform.rotation) as GameObject;
+        Rigidbody bulletRb = newBullet.GetComponent<Rigidbody>();
+        bulletRb.linearVelocity = this.transform.forward * bulletSpeed;
+        await Awaitable.WaitForSecondsAsync(between);
+        isShooting=false;
+        return "fired";
     }
     void FixedUpdate()
     {
-        /*rb.linearVelocity = new Vector3( _moveDirection.x*moveSpeed,0,_moveDirection.y*moveSpeed); # command line for typical wasd movement*/
-        rb.transform.Rotate(Vector3.up * _moveDirection.x * rotateSpeed * Time.deltaTime);
+        /*rotate.action.activeControl.path!="/Mouse/delta/right"                   code for conditional for future mouse movement for rotation*/
+        rb.transform.Rotate(Vector3.up * _rotateDirection * rotateSpeed * Time.deltaTime);
         rb.transform.Translate(Vector3.forward * _moveDirection.y * moveSpeed * Time.deltaTime);
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        rb.transform.Translate(Vector3.right * _moveDirection.x * moveSpeed * Time.deltaTime);
+        if (IsGrounded() && jump.action.WasPerformedThisFrame())
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-        if (Input.GetMouseButtonDown(0))
+        if (shoot.action.IsPressed()&& ! isShooting)
         {
-            GameObject newBullet = Instantiate(bullet, this.transform.position + new Vector3(1, 0, 0), this.transform.rotation) as GameObject;
-            Rigidbody bulletRb = newBullet.GetComponent<Rigidbody>();
-            bulletRb.linearVelocity = this.transform.forward * bulletSpeed;
+            _ = Shoot(fireRate);
         }
+        
     }
 
     private bool IsGrounded()
@@ -50,5 +79,6 @@ public class Player : MonoBehaviour
         bool grounded = Physics.CheckCapsule(_col.bounds.center, capsuleBottom, distanceToGround, groundLayer, QueryTriggerInteraction.Ignore);
         return grounded;
     }
+
 
 }
