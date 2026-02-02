@@ -31,12 +31,12 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public float bulletSpeed = 100f;
     public float fireRate=.5f;
-
     public bool isShooting=false;
+
+    public bool mouseLock=false;
 
     private GameBehavior _gameManager;
 
-    private IEventHandler test;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -61,8 +61,15 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        /*rotate.action.activeControl.path!="/Mouse/delta/right"                   code for conditional for future mouse movement for rotation*/
-        rb.transform.Rotate(Vector3.up * _rotateDirection * rotateSpeed * Time.deltaTime);
+        try
+        {
+            
+            if (rotate.action.activeControl.path == "/Keyboard/q" || rotate.action.activeControl.path == "/Keyboard/e"||UnityEngine.Cursor.lockState==CursorLockMode.Locked)
+            {
+                rb.transform.Rotate(Vector3.up * _rotateDirection * rotateSpeed * Time.deltaTime);
+            }
+        } catch (NullReferenceException){}
+            
         rb.transform.Translate(Vector3.forward * _moveDirection.y * moveSpeed * Time.deltaTime);
         rb.transform.Translate(Vector3.right * _moveDirection.x * moveSpeed * Time.deltaTime);
         if (IsGrounded() && jump.action.WasPerformedThisFrame())
@@ -73,7 +80,22 @@ public class Player : MonoBehaviour
         {
             _ = Shoot(fireRate);
         }
-        
+        if (Mlock.action.WasPressedThisDynamicUpdate())
+        {
+            Debug.Log("Mouse lock toggled");
+            mouseLock =!mouseLock;
+            if (mouseLock)
+           {
+                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                mouseLock=false;
+           }
+           else
+           {
+                UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+                mouseLock=true;
+            }
+        }
+
     }
 
     bool IsGrounded()
