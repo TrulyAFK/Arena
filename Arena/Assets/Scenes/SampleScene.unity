@@ -353,7 +353,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4901783923791141370, guid: fbdd8957fe3b24e41af6481456decadd, type: 3}
       propertyPath: m_Name
-      value: Item03
+      value: PickupSize
       objectReference: {fileID: 0}
     - target: {fileID: 6531022311180928662, guid: fbdd8957fe3b24e41af6481456decadd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -634,7 +634,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4901783923791141370, guid: 98c5d096bb423ae4a9827c45c3359b7d, type: 3}
       propertyPath: m_Name
-      value: Item01
+      value: PickupBase
       objectReference: {fileID: 0}
     - target: {fileID: 6531022311180928662, guid: 98c5d096bb423ae4a9827c45c3359b7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3817,7 +3817,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4901783923791141370, guid: ca564f1565114b14b8091d3527608ad8, type: 3}
       propertyPath: m_Name
-      value: Item04
+      value: PickupJump
       objectReference: {fileID: 0}
     - target: {fileID: 5787855123714925468, guid: ca564f1565114b14b8091d3527608ad8, type: 3}
       propertyPath: m_ApplyRootMotion
@@ -4117,7 +4117,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4901783923791141370, guid: ef6b355fde89947428a76018bcaa4122, type: 3}
       propertyPath: m_Name
-      value: Item02
+      value: PickupBoost
       objectReference: {fileID: 0}
     - target: {fileID: 6531022311180928662, guid: ef6b355fde89947428a76018bcaa4122, type: 3}
       propertyPath: m_LocalPosition.x

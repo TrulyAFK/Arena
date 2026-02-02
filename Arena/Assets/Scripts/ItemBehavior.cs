@@ -13,7 +13,7 @@ public class ItemBehavior : MonoBehaviour
         {
             Destroy(this.transform.parent.gameObject);
             Debug.Log("Item collected");
-            gameManager.Items += 1;
+            gameManager.labelText = "You've gained +1 speed";
         }
     }
 }
