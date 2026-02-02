@@ -34,11 +34,14 @@ public class Player : MonoBehaviour
 
     public bool isShooting=false;
 
+    private GameBehavior _gameManager;
 
     private IEventHandler test;
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         _col = GetComponent<CapsuleCollider>();
+        _gameManager=GameObject.Find("GameManger").GetComponent<GameBehavior>();
     }
 
     void Update()
@@ -73,12 +76,19 @@ public class Player : MonoBehaviour
         
     }
 
-    private bool IsGrounded()
+    bool IsGrounded()
     {
         Vector3 capsuleBottom = new Vector3(_col.bounds.center.x, _col.bounds.min.y, _col.bounds.center.z);
         bool grounded = Physics.CheckCapsule(_col.bounds.center, capsuleBottom, distanceToGround, groundLayer, QueryTriggerInteraction.Ignore);
         return grounded;
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Enemy")
+        {
+            _gameManager.HP -=1;
+        }
+    }
 
 }
