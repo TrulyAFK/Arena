@@ -1,15 +1,9 @@
+
 using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
-using UnityEngine.InputSystem.Utilities;
 using UnityEngine.UIElements;
+
 
 public class Player : MonoBehaviour
 {
@@ -31,12 +25,12 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public float bulletSpeed = 100f;
     public float fireRate=.5f;
-
     public bool isShooting=false;
 
+    public bool mouseLock=true;
+    
     private GameBehavior _gameManager;
 
-    private IEventHandler test;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -49,7 +43,7 @@ public class Player : MonoBehaviour
         _moveDirection = move.action.ReadValue<Vector2>();
         _rotateDirection = rotate.action.ReadValue<float>();
     }
-    async Task<string> Shoot(float between)
+    async void Shoot(float between)
     {   
         isShooting = true;
         GameObject newBullet = Instantiate(bullet, this.transform.position + new Vector3(1, 0, 0), this.transform.rotation) as GameObject;
@@ -57,25 +51,47 @@ public class Player : MonoBehaviour
         bulletRb.linearVelocity = this.transform.forward * bulletSpeed;
         await Awaitable.WaitForSecondsAsync(between);
         isShooting=false;
-        return "fired";
     }
     void FixedUpdate()
     {
-        /*rotate.action.activeControl.path!="/Mouse/delta/right"                   code for conditional for future mouse movement for rotation*/
-        rb.transform.Rotate(Vector3.up * _rotateDirection * rotateSpeed * Time.deltaTime);
+        try
+        {
+            if (rotate.action.activeControl.path == "/Keyboard/q" || rotate.action.activeControl.path == "/Keyboard/e"||UnityEngine.Cursor.lockState==CursorLockMode.Locked)
+            {
+                rb.transform.Rotate(Vector3.up * _rotateDirection * rotateSpeed * Time.deltaTime);
+            }
+        } catch (NullReferenceException){}
         rb.transform.Translate(Vector3.forward * _moveDirection.y * moveSpeed * Time.deltaTime);
         rb.transform.Translate(Vector3.right * _moveDirection.x * moveSpeed * Time.deltaTime);
-        if (IsGrounded() && jump.action.WasPerformedThisFrame())
+        jump.action.performed+=context=>{Jump();};
+        if (shoot.action.IsPressed()&& ! isShooting)
+        {
+            Shoot(fireRate);
+        }
+        Mlock.action.performed+=context => {toggleMouse();};
+    }
+    void toggleMouse()
+    {
+        if (Mlock.action.triggered)
+        {
+            mouseLock =!mouseLock;
+            if (mouseLock){
+                UnityEngine.Cursor.lockState = CursorLockMode.None;
+            }else
+            {
+                UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+    }
+
+    void Jump()
+    {
+        if (IsGrounded())
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-        if (shoot.action.IsPressed()&& ! isShooting)
-        {
-            _ = Shoot(fireRate);
-        }
         
     }
-
     bool IsGrounded()
     {
         Vector3 capsuleBottom = new Vector3(_col.bounds.center.x, _col.bounds.min.y, _col.bounds.center.z);

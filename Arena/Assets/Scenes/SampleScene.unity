@@ -343,6 +343,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150005633}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &150963970
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2085297440218099066, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: patrolRoute
+      value: 
+      objectReference: {fileID: 2068349380}
+    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.06293
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741410922592106642, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
 --- !u!1001 &158721047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1565,70 +1626,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446993002}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &464896631
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2085297440218099066, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: patrolRoute
-      value: 
-      objectReference: {fileID: 2068349380}
-    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.0000006
-      objectReference: {fileID: 0}
-    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 9.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3548268789976768144, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3741410922592106642, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3741410922592106642, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1964602104}
-  m_SourcePrefab: {fileID: 100100000, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
 --- !u!1 &489216931
 GameObject:
   m_ObjectHideFlags: 0
@@ -5283,33 +5280,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937320815}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1964602097 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3741410922592106642, guid: 990a3d68c6e2c3e4883145925ae8c875, type: 3}
-  m_PrefabInstance: {fileID: 464896631}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &1964602104
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964602097}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1972939838
 GameObject:
   m_ObjectHideFlags: 0
@@ -6017,6 +5987,7 @@ MonoBehaviour:
   bulletSpeed: 100
   fireRate: 0.5
   isShooting: 0
+  mouseLock: 0
 --- !u!54 &2107260421
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6057,7 +6028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
   m_Actions: {fileID: -944628639613478452, guid: 45216be75828ee44b84438974ae0f9ca, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -6068,7 +6039,27 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e7975d89-73c9-4d91-bb2d-af65b118303b
+    m_ActionName: 'Gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6834036b-f5ab-4eb2-8e14-975f8cb87bbd
+    m_ActionName: 'Gameplay/Rotate[/Keyboard/q,/Keyboard/e,/Mouse/delta/left,/Mouse/delta/right]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d0a38522-e68b-4367-97cb-c56f8ea8261e
+    m_ActionName: 'Gameplay/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 06d025fb-6365-4b11-a8d5-f0c6ea7179fe
+    m_ActionName: 'Gameplay/Shoot[/Mouse/leftButton,/Keyboard/f]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fdf908cf-0237-4bce-9e24-1f53db123920
+    m_ActionName: 'Gameplay/mouseLock[/Keyboard/backquote]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: keyboard
   m_DefaultActionMap: Gameplay
@@ -6137,7 +6128,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -6164,5 +6155,5 @@ SceneRoots:
   - {fileID: 1531312963}
   - {fileID: 158721047}
   - {fileID: 1328230628}
-  - {fileID: 464896631}
   - {fileID: 2068349380}
+  - {fileID: 150963970}
