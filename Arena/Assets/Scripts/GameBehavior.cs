@@ -1,7 +1,8 @@
-using System.Linq.Expressions;
+
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UIElements;
+
 
 public class GameBehavior : MonoBehaviour
 {
@@ -53,9 +54,11 @@ public class GameBehavior : MonoBehaviour
     }
     void OnGUI()
     {
-        GUI.Box(new Rect(20,20,150,25),"Player Health:"+_playerHP);
-        GUI.Box(new Rect(20,50,150,25),"Items Collected"+_itemsCollected);
-        GUI.Label(new Rect(Screen.width/2-100,Screen.height-50,300,50),labelText);
+        GUI.Box(new Rect(15,15,Screen.width/5,Screen.height/18),"Player Health:"+_playerHP);
+        GUI.Box(new Rect(15,Screen.height/18+30,Screen.width/5,Screen.height/18),"Items Collected:"+_itemsCollected);
+        GUI.Box(new Rect(Screen.width/2-150,Screen.height-50,300,40),labelText);
+        
+        
         if (showWinScreen)
         {
             if (GUI.Button(new Rect (Screen.width/2-100,Screen.height/2-50,200,100),"YOU WON!"))

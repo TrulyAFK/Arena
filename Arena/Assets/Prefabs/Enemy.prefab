@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4894541999834170165}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,8 @@ MonoBehaviour:
   player: {fileID: 0}
   patrolRoute: {fileID: 0}
   locations: []
+  lastPosition: {fileID: 0}
+  standingBye: 0
 --- !u!195 &4894541999834170165
 NavMeshAgent:
   m_ObjectHideFlags: 0

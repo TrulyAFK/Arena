@@ -10,7 +10,8 @@ public class EnemyBehavior : MonoBehaviour
 
     private int loactionIndex=0;
     private NavMeshAgent agenet;
-
+    public Transform lastPosition;
+    public bool standingBye=false;
     private int _lives=3;
     public int EnemyLives
     {
@@ -27,6 +28,7 @@ public class EnemyBehavior : MonoBehaviour
     }
     void Start()
     {
+        Debug.Log(this.tag);
         agenet = GetComponent<NavMeshAgent>();
         player=GameObject.Find("Player").transform;
         InitializePatrolRoute();
@@ -34,22 +36,30 @@ public class EnemyBehavior : MonoBehaviour
     }
     void InitializePatrolRoute()
     {
-     foreach(Transform child in patrolRoute)
+        foreach(Transform child in patrolRoute)
         {
             locations.Add(child);
         }   
+        lastPosition=locations[locations.Count-1];
     }
     void Update()
     {
-        if (agenet.remainingDistance < 0.2f && !agenet.pathPending)
+        if (agenet.remainingDistance < 0.2f && !agenet.pathPending&&!standingBye)
         {
             MoveToNextPatrolLocaiton();
         }
     }
-    void MoveToNextPatrolLocaiton()
+    async void MoveToNextPatrolLocaiton()
     {
-        if(locations.Count==0) 
+        if(locations.Count==0||agenet==null) 
             return;
+        if (lastPosition.position == locations[loactionIndex].position)///place two patrol locations in the same spot for a time based on the x scale of the latter location
+        {
+            standingBye=true;
+            await Awaitable.WaitForSecondsAsync(locations[loactionIndex].localScale.x);
+            standingBye=false;
+        }
+        lastPosition=locations[loactionIndex];
         agenet.destination=locations[loactionIndex].position;
         loactionIndex=(loactionIndex+1)%locations.Count;
     }
