@@ -28,7 +28,6 @@ public class EnemyBehavior : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log(this.tag);
         agenet = GetComponent<NavMeshAgent>();
         player=GameObject.Find("Player").transform;
         InitializePatrolRoute();

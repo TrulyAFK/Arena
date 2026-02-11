@@ -2,10 +2,17 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements;
+using CustomExtensions;
 
-
-public class GameBehavior : MonoBehaviour
+public class GameBehavior : MonoBehaviour, IManager
 {
+    private string _state;
+    public string State
+    {
+        get{return _state;}
+        set{_state=value;}
+    }
+    
     public string labelText = "Collect all 4 items and win your freedom!";
     public int maxItems=4;
     public bool showWinScreen=false;
@@ -27,7 +34,7 @@ public class GameBehavior : MonoBehaviour
             }
         }
     }
-    private int _playerHP=10;
+    private int _playerHP=3;
     public int HP
     {
         get{return _playerHP;}
@@ -44,13 +51,17 @@ public class GameBehavior : MonoBehaviour
             {
                 labelText="Ouch... that's gota hurt.";
             }
-            Debug.LogFormat("Items: {0}",_playerHP);   
         }
     }
-    void RestartLevel()
+    void Start()
     {
-        SceneManager.LoadScene(0);
-        Time.timeScale=1.0f; 
+        Initialize();
+    }
+    public void Initialize()
+    {
+        _state = "Manager initialized..";
+        _state.FancyDebug();
+        Debug.Log(_state);
     }
     void OnGUI()
     {
@@ -58,19 +69,18 @@ public class GameBehavior : MonoBehaviour
         GUI.Box(new Rect(15,Screen.height/18+30,Screen.width/5,Screen.height/18),"Items Collected:"+_itemsCollected);
         GUI.Box(new Rect(Screen.width/2-150,Screen.height-50,300,40),labelText);
         
-        
         if (showWinScreen)
         {
             if (GUI.Button(new Rect (Screen.width/2-100,Screen.height/2-50,200,100),"YOU WON!"))
             {
-                RestartLevel();
+                Utilities.RestartLevel();
             }
         }
         if (showLossScreen)
         {
             if(GUI.Button(new Rect(Screen.width/2-100,Screen.height/2-50,200,100),"You lose..."))
             {
-                RestartLevel();
+                Utilities.RestartLevel();
             }
         }
     }
