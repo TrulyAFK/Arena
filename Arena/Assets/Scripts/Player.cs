@@ -106,5 +106,6 @@ public class Player : MonoBehaviour
             _gameManager.HP -=1;
         }
     }
+    
 
 }
