@@ -28,7 +28,7 @@ public class CameraBehavior : MonoBehaviour
             {
                 Debug.Log("Set transparent to:"+currentHitObject);
                 Material matC = currentHitObject.GetComponent<Renderer>().material;
-                matC.color = new Color(matC.color.r,matC.color.g,matC.color.b,0.5f);
+                matC.color = new Color(matC.color.r,matC.color.g,matC.color.b,0.7f);
                 if (lastHitObject != null)
                 {
                     Debug.Log("Revert transparent:"+lastHitObject);

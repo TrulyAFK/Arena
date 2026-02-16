@@ -64,14 +64,14 @@ public class EnemyBehavior : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        if(other.name == "Player")
+        if(other.name == "Player"&&!Physics.Linecast(this.transform.position,player.position,LayerMask.GetMask("Ground")))
         {
             agenet.destination=player.position;
         }
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Player")
+        if(other.name == "Player"&&!Physics.Linecast(this.transform.position,player.position,LayerMask.GetMask("Ground")))
         {
             Debug.Log("Player Detected");
         }

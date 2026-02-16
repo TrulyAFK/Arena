@@ -171,6 +171,8 @@ MonoBehaviour:
     - line: '|   preloadedAssets:'
     - line: '|   - {fileID: -944628639613478452, guid: 45216be75828ee44b84438974ae0f9ca,
         type: 3}'
+    - line: '|   - {fileID: 11400000, guid: dccc41bc5297f0a4284881a9428c2468, type:
+        2}'
     - line: '|   metroInputSource: 0'
     - line: '|   wsaTransparentSwapchain: 0'
     - line: '|   m_HolographicPauseOnTrackingLoss: 1'
