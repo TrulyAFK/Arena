@@ -7,6 +7,9 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
+    public delegate void JumpingEvent();
+    public event JumpingEvent playerJump;
+
     public Rigidbody rb;
     public float moveSpeed;
     public float rotateSpeed;
@@ -89,6 +92,7 @@ public class Player : MonoBehaviour
         if (IsGrounded())
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            playerJump();
         }
         
     }
